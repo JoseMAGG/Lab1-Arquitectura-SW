@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Editar calendario</title>
+    </h:head>
+    <h:body>
+
+
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="Crear  y editar calendario"/></h1>
+                <p:panelGrid columns="2">
+
+                    <p:outputLabel value="Facultad seleccionada:" />
+                    <h:outputText value="#{calendarioMBean.calendario.facultad.nombre}" />
+
+                    <p:outputLabel value="Id Facultad:" for="idFacultad" />
+                    <p:inputText id="idFacultad" value="#{calendarioMBean.calendario.calendarioPK.idFacultad}" title="Id" 
+                                 required="true" requiredMessage="The Id field is required."/>
+
+                    <p:outputLabel value="Id Decano:" />
+                    <h:outputText value="#{calendarioMBean.calendario.facultad.idDecano}" />
+                    
+                    <p:outputLabel value="Id Calendario:" for="id" />
+                    <p:inputText id="id" value="#{calendarioMBean.calendario.calendarioPK.id}" title="Id" required="true" 
+                                 requiredMessage="The Id field is required."/>
+                    
+                    <p:outputLabel value="Id Aprobador:" for="idAprobador" />
+                    <p:inputText id="idAprobador" value="#{calendarioMBean.calendario.idAprobador}" title="IdAprobador" />                     
+
+                    <p:outputLabel value="Publicacion de la oferta:" for="publicacionOferta" />
+                    <p:calendar id="publicacionOferta" value="#{calendarioMBean.calendario.publicacionOferta}" 
+                                title="PublicacionOferta" required="true" requiredMessage="The PublicacionOferta field is required."
+                                pattern="MM/dd/yyyy" showButtonPanel="true" yearRange="#{commonUtils.getCalendarRange()}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </p:calendar>
+                    <p:outputLabel value="Inicio de matriculas:" for="inicioMatriculas" />
+                    <p:calendar id="inicioMatriculas" value="#{calendarioMBean.calendario.inicioMatriculas}" 
+                                title="InicioMatriculas" required="true" requiredMessage="The InicioMatriculas field is required."
+                                pattern="MM/dd/yyyy" showButtonPanel="true" yearRange="#{commonUtils.getCalendarRange()}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </p:calendar>
+                    <p:outputLabel value="Fin de matriculas:" for="finMatriculas" />
+                    <p:calendar id="finMatriculas" value="#{calendarioMBean.calendario.finMatriculas}" 
+                                title="FinMatriculas" required="true" requiredMessage="The FinMatriculas field is required."
+                                pattern="MM/dd/yyyy" showButtonPanel="true" yearRange="#{commonUtils.getCalendarRange()}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </p:calendar>
+                    <p:outputLabel value="Inicio de ajustes:" for="inicioAjustes" />
+                    <p:calendar id="inicioAjustes" value="#{calendarioMBean.calendario.inicioAjustes}"
+                                title="InicioAjustes" required="true" requiredMessage="The InicioAjustes field is required."
+                                pattern="MM/dd/yyyy" showButtonPanel="true" yearRange="#{commonUtils.getCalendarRange()}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </p:calendar>
+                    <p:outputLabel value="Fin de ajustes:" for="finAjustes" />
+                    <p:calendar id="finAjustes" value="#{calendarioMBean.calendario.finAjustes}" 
+                                title="FinAjustes" required="true" requiredMessage="The FinAjustes field is required."
+                                pattern="MM/dd/yyyy" showButtonPanel="true" yearRange="#{commonUtils.getCalendarRange()}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </p:calendar>
+                    <p:outputLabel value="Inicio de clases:" for="inicioClases" />
+                    <p:calendar id="inicioClases" value="#{calendarioMBean.calendario.inicioClases}" 
+                                title="InicioClases" required="true" requiredMessage="The InicioClases field is required."
+                                pattern="MM/dd/yyyy" showButtonPanel="true" yearRange="#{commonUtils.getCalendarRange()}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </p:calendar>
+                    <p:outputLabel value="Fin de clases:" for="finClases" />
+                    <p:calendar id="finClases" value="#{calendarioMBean.calendario.finClases}" title="FinClases" 
+                                required="true" requiredMessage="The FinClases field is required."
+                                pattern="MM/dd/yyyy" showButtonPanel="true" yearRange="#{commonUtils.getCalendarRange()}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </p:calendar>
+                    <p:outputLabel value="Inicio de examenes finales:" for="inicioExamenesFinales" />
+                    <p:calendar id="inicioExamenesFinales" value="#{calendarioMBean.calendario.inicioExamenesFinales}" 
+                                title="InicioExamenesFinales" required="true" requiredMessage="The InicioExamenesFinales field is required."
+                                pattern="MM/dd/yyyy" showButtonPanel="true" yearRange="#{commonUtils.getCalendarRange()}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </p:calendar>
+                    <p:outputLabel value="Fin de examenes finales:" for="finExamenesFinales" />
+                    <p:calendar id="finExamenesFinales" value="#{calendarioMBean.calendario.finExamenesFinales}" 
+                                title="FinExamenesFinales" required="true" requiredMessage="The FinExamenesFinales field is required."
+                                pattern="MM/dd/yyyy" showButtonPanel="true" yearRange="#{commonUtils.getCalendarRange()}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </p:calendar>
+                    <p:outputLabel value="Inicio validaciones:" for="inicioValidaciones" />
+                    <p:calendar id="inicioValidaciones" value="#{calendarioMBean.calendario.inicioValidaciones}" 
+                                title="InicioValidaciones" required="true" requiredMessage="The InicioValidaciones field is required."
+                                pattern="MM/dd/yyyy" showButtonPanel="true" yearRange="#{commonUtils.getCalendarRange()}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </p:calendar>
+                    <p:outputLabel value="Fin validaciones:" for="finValidaciones" />
+                    <p:calendar id="finValidaciones" value="#{calendarioMBean.calendario.finValidaciones}" 
+                                title="FinValidaciones" required="true" requiredMessage="The FinValidaciones field is required."
+                                pattern="MM/dd/yyyy" showButtonPanel="true" yearRange="#{commonUtils.getCalendarRange()}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </p:calendar>
+                    <p:outputLabel value="Inicio habilitaciones:" for="inicioHabilitaciones" />
+                    <p:calendar id="inicioHabilitaciones" value="#{calendarioMBean.calendario.inicioHabilitaciones}" 
+                                title="InicioHabilitaciones" required="true" requiredMessage="The InicioHabilitaciones field is required."
+                                pattern="MM/dd/yyyy" showButtonPanel="true" yearRange="#{commonUtils.getCalendarRange()}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </p:calendar>
+                    <p:outputLabel value="Fin habilitaciones:" for="finHabilitaciones" />
+                    <p:calendar id="finHabilitaciones" value="#{calendarioMBean.calendario.finHabilitaciones}" 
+                                title="FinHabilitaciones" required="true" requiredMessage="The FinHabilitaciones field is required." 
+                                pattern="MM/dd/yyyy" showButtonPanel="true" yearRange="#{commonUtils.getCalendarRange()}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </p:calendar>
+                    <p:outputLabel value="Terminacion oficial del semestre:" for="terminacionOficial" />
+                    <p:calendar id="terminacionOficial" value="#{calendarioMBean.calendario.terminacionOficial}" 
+                                title="TerminacionOficial" required="true" requiredMessage="The TerminacionOficial field is required."
+                                pattern="MM/dd/yyyy" showButtonPanel="true" yearRange="#{commonUtils.getCalendarRange()}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </p:calendar>
+
+
+                </p:panelGrid>
+
+                <h2>Primefaces - Captcha</h2>
+                <p:messages id="msg"/>
+                <p:captcha id="captcha"></p:captcha>
+
+
+                <h:commandButton id="back" value="Back" action="#{calendarioMBean.list()}"/>
+                <h:commandButton id="update" value="Update" action="#{calendarioMBean.update()}"/>
+
+
+
+
+            </h:form>
+        </f:view>
+
+
+
+    </h:body>
+</html>
+

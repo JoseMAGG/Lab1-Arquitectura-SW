@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>       
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h1><h:outputText value="Lista de calendarios"/></h1>
+                <p:dataTable value="#{calendarioMBean.calendarios}" var="item"
+                             paginator="true"
+                             rows="10"
+                             scrollable="true"
+                             scrollWidth="250%"
+                             scrollHeight="550"
+                             rendered="true"
+                             resizableColumns="true"
+                             sortMode="true"
+                             emptyMessage="No hay informacion en la tabla"
+                             widgetVar="calendarioTable"
+                             
+                             >
+                    <p:column headerText="CalendarioId"
+                              sortBy="#{item.calendarioPK.id}"
+                              filterBy="#{item.calendarioPK.id}"
+                              filterMatchMode="contains"
+                              
+                              >
+                        <h:commandLink action="#{calendarioMBean.ShowDetails(item)}"
+                                       value="#{item.calendarioPK.id}"/>             
+                    </p:column>
+                    
+                    <p:column headerText="Codigo Qr">
+                        <p:barcode value="#{item.calendarioPK.id} #{item.idAprobador}"
+                                   type="qr" height="150px" width="150px"/>
+                        
+                    </p:column>
+                              
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Facultad"/>
+                        </f:facet>
+                        <h:outputText value="#{item.facultad.nombre}"/>
+                    </p:column>
+                    
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="IdAprobador"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idAprobador}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="PublicacionOferta"/>
+                        </f:facet>
+                        <h:outputText value="#{item.publicacionOferta}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="InicioMatriculas"/>
+                        </f:facet>
+                        <h:outputText value="#{item.inicioMatriculas}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="FinMatriculas"/>
+                        </f:facet>
+                        <h:outputText value="#{item.finMatriculas}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="InicioAjustes"/>
+                        </f:facet>
+                        <h:outputText value="#{item.inicioAjustes}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="FinAjustes"/>
+                        </f:facet>
+                        <h:outputText value="#{item.finAjustes}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="InicioClases"/>
+                        </f:facet>
+                        <h:outputText value="#{item.inicioClases}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="FinClases"/>
+                        </f:facet>
+                        <h:outputText value="#{item.finClases}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="InicioExamenesFinales"/>
+                        </f:facet>
+                        <h:outputText value="#{item.inicioExamenesFinales}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="FinExamenesFinales"/>
+                        </f:facet>
+                        <h:outputText value="#{item.finExamenesFinales}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="InicioValidaciones"/>
+                        </f:facet>
+                        <h:outputText value="#{item.inicioValidaciones}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="FinValidaciones"/>
+                        </f:facet>
+                        <h:outputText value="#{item.finValidaciones}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="InicioHabilitaciones"/>
+                        </f:facet>
+                        <h:outputText value="#{item.inicioHabilitaciones}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="FinHabilitaciones"/>
+                        </f:facet>
+                        <h:outputText value="#{item.finHabilitaciones}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="TerminacionOficial"/>
+                        </f:facet>
+                        <h:outputText value="#{item.terminacionOficial}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Facultad"/>
+                        </f:facet>
+                        <h:outputText value="#{item.facultad}"/>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </f:view>
+
+        
+        
+    </h:body>
+</html>
+
